@@ -1,6 +1,34 @@
 window.addEventListener('load', function() {
 	
 	
+	
+	//globalno rezerviran čas in imena opomnikov
+	//var opomnik;
+	//var cas;
+	
+	
+	var dodajOpomnik = function (event){
+		var ime =document.querySelector('#naziv_opomnika').value;
+		var cass =document.querySelector('#cas_opomnika').value;
+		document.querySelector('#naziv_opomnika').value="";
+		document.querySelector('#cas_opomnika').value="";
+		
+		document.querySelector('#opomniki').innerHTML+="\
+		<div class='opomnik'>\
+		     <div class='naziv_opomnika'>" + ime + " </div>  <div class='cas_opomnika'> Opomnik čez <span>"  +  cass  +  "  </span> sekund.</div></div>";
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	document.querySelector('#dodajGumb').addEventListener('click', dodajOpomnik);
+	
+	//Pridobivanje imena uporabnika in prva vpisna stvar
 	var izvediPrijavo = function(event){
 		
 		var uporabnik = document.querySelector('#uporabnisko_ime').value;
@@ -20,7 +48,7 @@ window.addEventListener('load', function() {
 	var posodobiOpomnike = function() {
 		var opomniki = document.querySelectorAll(".opomnik");
 		
-		for (i = 0; i < opomniki.length; i++) {
+		for (var i = 0; i < opomniki.length; i++) {
 			var opomnik = opomniki[i];
 			var casovnik = opomnik.querySelector("span");
 			var cas = parseInt(casovnik.innerHTML);
