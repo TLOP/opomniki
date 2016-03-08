@@ -1,4 +1,19 @@
 window.addEventListener('load', function() {
+	
+	
+	var izvediPrijavo = function(event){
+		
+		var uporabnik = document.querySelector('#uporabnisko_ime').value;
+		
+		document.querySelector('#uporabnik').innerHTML=uporabnik;
+		
+		document.querySelector('.pokrivalo').style.visibility="hidden";
+	}
+	
+	
+	document.querySelector('#prijavniGumb').addEventListener('click', izvediPrijavo);
+	//var ime_uporabnika;
+	
 	//stran nalozena
 		
 	//Posodobi opomnike
@@ -16,5 +31,11 @@ window.addEventListener('load', function() {
 		}
 	}
 	setInterval(posodobiOpomnike, 1000);
+	
+	//če klikne si naj shrani ime in izgine
+	/*document.getElementById('prijavniGumb').addEventListener('click',function(){
+		ime_uporabnika=document.getElementById('uporabnisko_ime').innerHTML;
+		document.getElementById('pokrivalo').style.display='false';
+	})*/
 	
 });
